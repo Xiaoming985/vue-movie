@@ -1,0 +1,22 @@
+$white: #fff;
+$bg: #e54847;
+.van-nav-bar{
+  background-color:$bg;
+  font-size:4vw;
+  .van-nav-bar__title{
+    font-size:4vw;
+    line-height: 13vw;
+    color:$white;
+  }
+  .van-icon-arrow-left{
+    color:$white;
+  }
+  .van-nav-bar__text{
+    color:$white;
+  }
+}
+.van-search{
+  .van-search__action{
+    color:$bg !important;
+  }
+}

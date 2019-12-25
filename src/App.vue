@@ -1,32 +1,48 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <!-- 头部 -->
+    <Header :headerTitle="headerTitle" :backBtn="back"></Header>
+    <!-- https://cn.vuejs.org/v2/api/#keep-alive keepalive缓存策略-->
+    <keep-alive include="movie,cinema">
+      <!-- 路由渲染 -->
+      <router-view/>
+    </keep-alive>
+    <!-- 底部标签栏 -->
+    <!-- <nav-footer></nav-footer> -->
+    <NavFooter></NavFooter>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Header from '@/components/Header.vue'
+import NavFooter from '@/components/NavFooter.vue'
+export default {
+  components: {
+    Header,
+    NavFooter
+  },
+  computed: {
+    headerTitle() {
+      return this.$store.state.headerTitle
+    },
+    back() {
 
-#nav {
-  padding: 30px;
+    },
+    cityTitle() {
+      return this.$store.state.cityTitle
+    }
+  },
+  methods: {
+    toCity() {
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+    },
+    toSearch() {
 
-    &.router-link-exact-active {
-      color: #42b983;
     }
   }
 }
+</script>
+
+<style lang="scss">
+
 </style>
